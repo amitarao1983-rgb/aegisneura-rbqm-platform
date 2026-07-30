@@ -11,16 +11,16 @@ const nav = [
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-full bg-slate-50 text-slate-900">
-      <aside className="hidden w-64 shrink-0 border-r border-slate-200 bg-white md:flex md:flex-col">
-        <div className="border-b border-slate-200 px-5 py-6">
-          <div className="flex items-center gap-2 text-cyan-700">
+      <aside className="hidden w-64 shrink-0 border-r border-[#0d2137] bg-[#0a1628] md:flex md:flex-col">
+        <div className="border-b border-[#1e3a5f] px-5 py-6">
+          <div className="flex items-center gap-2 text-cyan-400">
             <Activity className="h-6 w-6" aria-hidden />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
               AegisNeura
             </span>
           </div>
-          <h1 className="mt-2 text-lg font-semibold text-slate-900">RBQM Platform</h1>
-          <p className="mt-1 text-xs leading-relaxed text-slate-500">
+          <h1 className="mt-2 text-lg font-semibold text-white">RBQM Platform</h1>
+          <p className="mt-1 text-xs leading-relaxed text-slate-300">
             Automated risk-based quality monitoring for clinical trials
           </p>
         </div>
@@ -29,14 +29,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-200 transition hover:bg-[#1e3a5f] hover:text-white"
             >
-              <Icon className="h-4 w-4 text-cyan-600" aria-hidden />
+              <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
               {label}
             </Link>
           ))}
         </nav>
-        <p className="border-t border-slate-200 px-4 py-3 text-[11px] text-slate-400">
+        <p className="border-t border-[#1e3a5f] px-4 py-3 text-[11px] text-slate-400">
           AI review · Site risk signals · Lead oversight roles
         </p>
       </aside>
