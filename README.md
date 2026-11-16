@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). `npm run dev` uses webpack so the slide reader can load images on Windows.
+Open [http://localhost:3000](http://localhost:3000). `npm run dev` and `npm run build` use webpack so the slide reader can load images on Windows and on the hosted site.
 
 ## API
 
