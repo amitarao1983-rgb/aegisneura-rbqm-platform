@@ -7,7 +7,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="flex items-center gap-3 px-4 py-4 md:px-8">
           <Microscope className="h-6 w-6 text-cyan-400" aria-hidden />
           <div>
-            <h1 className="text-lg font-semibold text-white">Rodent liver injury</h1>
+            <h1 className="text-lg font-semibold text-white">Rodent DILI app</h1>
             <p className="text-xs text-slate-300">
               Histopathology reads for preclinical drug studies
             </p>

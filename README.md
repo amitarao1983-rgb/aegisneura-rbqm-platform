@@ -1,4 +1,4 @@
-# Rodent liver injury
+# Rodent DILI app
 
 Reads liver histopathology fields from rats and other rodents and scores a drug-induced liver injury pattern for preclinical studies.
 

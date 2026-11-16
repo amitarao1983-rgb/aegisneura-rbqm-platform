@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rodent liver injury",
+  title: "Rodent DILI app",
   description:
     "Read rodent liver histopathology fields and score drug-induced liver injury for preclinical studies.",
 };
