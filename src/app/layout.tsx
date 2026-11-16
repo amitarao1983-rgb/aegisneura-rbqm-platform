@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AegisNeura RBQM Platform",
+  title: "Rodent liver injury",
   description:
-    "Risk-based quality management for remote clinical trial monitoring with automated KRI and QTL analytics.",
+    "Read rodent liver histopathology fields and score drug-induced liver injury for preclinical studies.",
 };
 
 export default function RootLayout({

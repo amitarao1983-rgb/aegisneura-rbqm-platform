@@ -39,6 +39,7 @@ yarn-error.log*
 # runtime trial data & uploads
 /data/platform.json
 /data/uploads/
+/data/dili/
 
 # typescript
 *.tsbuildinfo

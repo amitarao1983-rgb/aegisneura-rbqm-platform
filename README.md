@@ -1,17 +1,10 @@
-# AegisNeura RBQM Platform
+# Rodent liver injury
 
-Risk-based quality management (RBQM) for **remote clinical trial monitoring**. AegisNeura runs **automated statistical review** on trial data—site-level **Key Risk Indicators (KRIs)** and study-level **Quality Tolerance Limits (QTLs)**—without a manual review queue.
+Reads liver histopathology fields from rats and other rodents and scores a drug-induced liver injury pattern for preclinical studies.
 
-## Features
+Upload a PNG, JPEG, WEBP, or TIFF field, add the species, strain, sex, study, animal, dose group, and stain, then run the reader. The result is an INHAND-style call with stain measurements and lesion grades. Synthetic practice fields are included. Whole-slide SVS and NDPI files are not supported.
 
-- **Multiple trial placeholders** with sample oncology, CNS, and Phase I studies
-- **KRIs (site-specific):** adverse event rate, SAE rate, missed visit rate, off-schedule visit rate (±2 day window), missed IP administration rate, protocol deviation rate
-- **QTLs (study-specific):** missed assessment rate, missed IP rate, SAE rate
-- **Analytics:** relative risk (observed ÷ expected) and absolute QTL breach detection
-- **Dark UI** optimized for monitoring workflows
-- **EDC connectors** (Medidata Rave, Oracle Clinical One, Veeva CDMS placeholders) with one-click automated sync
-- **Document intake:** PDF, CSV, PNG, Excel uploads
-- **Site oversight:** 4–5 hospital sites per trial; functional leads raise queries / risk signals to sites from AI findings
+The scorer is a placeholder (`predictFromFeatures` in `src/lib/dili/predict.ts`). A veterinary pathologist confirms every call before it is used in a study report.
 
 ## Local development
 
@@ -20,36 +13,14 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). `npm run dev` uses webpack so the slide reader can load images on Windows.
 
-## Production (HTTPS)
-
-Deploy to [Vercel](https://vercel.com) for a free `https://` URL:
-
-```bash
-npx vercel --prod
-```
-
-Or build and run anywhere Node 20+ is available:
-
-```bash
-npm run build
-npm start
-```
-
-## API overview
+## API
 
 | Endpoint | Description |
 |----------|-------------|
-| `GET /api/trials` | List trials with automated summary |
-| `GET /api/trials/[id]` | Trial detail + full analysis |
-| `POST /api/trials/[id]/analyze` | Re-run automated statistical review |
-| `GET /api/edc/connectors` | List EDC connectors |
-| `POST /api/edc/sync` | Pull EDC data (body: `{ "connectorId": "..." }`) |
-| `POST /api/uploads` | Multipart upload (`file`, optional `trialId`) |
-| `GET /api/oversight/findings` | AI-flagged KRI/QTL inbox (optional `trialId`) |
-| `GET/POST/PATCH /api/risk-signals` | List, create, send draft risk signals to sites |
-
-## License
-
-Proprietary — AegisNeura Therapeutics (demo scaffold).
+| `POST /api/dili/predict` | Multipart liver field (`file` plus species, strain, sex, studyId, animalId, doseGroup, dose, stain) |
+| `GET /api/dili/cases` | Recent reads |
+| `GET /api/dili/cases/[id]` | One read |
+| `GET /api/dili/cases/[id]/image` | Stored slide image |
+| `DELETE /api/dili/cases/[id]` | Remove a read |

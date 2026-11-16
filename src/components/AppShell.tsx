@@ -1,56 +1,20 @@
-import Link from "next/link";
-import { Activity, Cable, LayoutDashboard, Radio, Upload } from "lucide-react";
-
-const nav = [
-  { href: "/", label: "Trials", icon: LayoutDashboard },
-  { href: "/oversight", label: "Risk oversight & queries", icon: Radio },
-  { href: "/edc", label: "EDC Connectors", icon: Cable },
-  { href: "/uploads", label: "Document intake", icon: Upload },
-];
+import { Microscope } from "lucide-react";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-full bg-slate-50 text-slate-900">
-      <aside className="hidden w-64 shrink-0 border-r border-[#0d2137] bg-[#0a1628] md:flex md:flex-col">
-        <div className="border-b border-[#1e3a5f] px-5 py-6">
-          <div className="flex items-center gap-2 text-cyan-400">
-            <Activity className="h-6 w-6" aria-hidden />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
-              AegisNeura
-            </span>
+    <div className="flex min-h-full flex-col bg-slate-50 text-slate-900">
+      <header className="border-b border-[#0d2137] bg-[#0a1628]">
+        <div className="flex items-center gap-3 px-4 py-4 md:px-8">
+          <Microscope className="h-6 w-6 text-cyan-400" aria-hidden />
+          <div>
+            <h1 className="text-lg font-semibold text-white">Rodent liver injury</h1>
+            <p className="text-xs text-slate-300">
+              Histopathology reads for preclinical drug studies
+            </p>
           </div>
-          <h1 className="mt-2 text-lg font-semibold text-white">RBQM Platform</h1>
-          <p className="mt-1 text-xs leading-relaxed text-slate-300">
-            Automated risk-based quality monitoring for clinical trials
-          </p>
         </div>
-        <nav className="flex flex-1 flex-col gap-1 p-3">
-          {nav.map(({ href, label, icon: Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-200 transition hover:bg-[#1e3a5f] hover:text-white"
-            >
-              <Icon className="h-4 w-4 text-cyan-400" aria-hidden />
-              {label}
-            </Link>
-          ))}
-        </nav>
-        <p className="border-t border-[#1e3a5f] px-4 py-3 text-[11px] text-slate-400">
-          AI review · Site risk signals · Lead oversight roles
-        </p>
-      </aside>
-      <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-3 md:px-8">
-          <div className="md:hidden">
-            <span className="text-sm font-semibold text-cyan-700">AegisNeura RBQM</span>
-          </div>
-          <p className="text-xs text-slate-500">
-            Remote monitoring · Statistical engine · EDC-ready connectors
-          </p>
-        </header>
-        <main className="flex-1 px-4 py-6 md:px-8 md:py-8">{children}</main>
-      </div>
+      </header>
+      <main className="flex-1 px-4 py-6 md:px-8 md:py-8">{children}</main>
     </div>
   );
 }
